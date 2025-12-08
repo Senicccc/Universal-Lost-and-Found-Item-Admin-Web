@@ -1,60 +1,65 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Universal Lost and Found (ULaF) – Admin Web Panel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+The ULaF Admin Web Panel is a Laravel-based dashboard designed to manage all data related to lost and found item reports. It provides administrators with tools to monitor system activity, review user submissions, manage items, and maintain data integrity across the entire ULaF ecosystem.
 
-## About Laravel
+This panel works together with the **ULaF Mobile App (Flutter)** and a **Laravel REST API backend**, forming a unified system for reporting, tracking, and organizing lost and found items.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Key Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+###  Dashboard Overview
+The dashboard displays essential system statistics including:
+- Total registered users  
+- Total reported items  
+- Total unclaimed items  
+- Recently added reports  
 
-## Learning Laravel
+### Item Management
+Admins can:
+- View all items (lost & found)  
+- Edit item data  
+- Delete invalid or duplicate reports  
+- Approve or update item statuses (e.g., *claimed*, *returned*)  
+- View detailed item information including images  
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+###  User Management
+- View all registered users  
+- Edit or remove users if necessary  
+- Monitor user activity related to item reports  
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## System Architecture
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+The Admin Panel is tightly integrated with the backend API and mobile application:
 
-### Premium Partners
+1. **Mobile App (Flutter)**  
+   Sends report data, images, and updates through API requests. You can access ULaF mobile app on **https://github.com/Senicccc/Universal-Lost-and-Found-Item-Mobile-App**
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+2. **Laravel API**  
+   Processes mobile requests and provides endpoints to the admin panel.
 
-## Contributing
+3. **Admin Web Panel (this repository)**  
+   Allows administrators to control and manage all system data using a clean UI built with Blade templates.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## Database Overview
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+The system uses MySQL named "ulaf_db" with tables such as:
+- `users`
+- `items`
+- `item_status`
+- `bookmarks`
 
-## Security Vulnerabilities
+This admin panel provides full CRUD access to almost all key tables, depending on feature implementation.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 🚀 Tech Stack
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# Universal-Lost-and-Found-Item-Admin-Web
+- Laravel 12 (PHP)
+- MySQL  
+
+---
